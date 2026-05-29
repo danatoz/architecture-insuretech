@@ -1,361 +1,237 @@
-<mxfile host="draw.io" agent="Mozilla/5.0" version="24.7.11">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
   <diagram name="to-be" id="to-be-arch">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1400" pageHeight="1800" math="0" shadow="0">
+    <mxGraphModel dx="862" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1800" math="0" shadow="0">
       <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-
-        <!-- ===== TITLE ===== -->
-        <mxCell id="title" value="&lt;b&gt;InsureTech — Технологическая архитектура (TO-BE)&lt;/b&gt;" style="text;html=1;fontSize=24;fontColor=#333333;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;labelBackgroundColor=none;" vertex="1" parent="1">
-          <mxGeometry x="350" y="10" width="700" height="40" as="geometry"/>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=24;fontColor=#333333;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;labelBackgroundColor=none;" value="&lt;b&gt;InsureTech — Технологическая архитектура (TO-BE)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="700" x="350" y="10" as="geometry" />
         </mxCell>
-
-        <!-- ===== SECTION 1: GLOBAL ENTRY POINTS (y=60..260) ===== -->
-        
-        <!-- Global DNS -->
-        <mxCell id="dns" value="Yandex Cloud DNS&#xa;(Latency-based / Geo Routing)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5282FF;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#3366CC;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="550" y="70" width="200" height="50" as="geometry"/>
+        <mxCell id="dns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5282FF;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#3366CC;arcSize=10;" value="Yandex Cloud DNS&#xa;(Latency-based / Geo Routing)" vertex="1">
+          <mxGeometry height="50" width="200" x="550" y="70" as="geometry" />
         </mxCell>
-
-        <!-- CDN -->
-        <mxCell id="cdn" value="Yandex Cloud CDN&#xa;(Static assets: JS, CSS, images)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5282FF;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#3366CC;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="550" y="140" width="200" height="50" as="geometry"/>
+        <mxCell id="cdn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5282FF;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#3366CC;arcSize=10;" value="Yandex Cloud CDN&#xa;(Static assets: JS, CSS, images)" vertex="1">
+          <mxGeometry height="50" width="200" x="550" y="140" as="geometry" />
         </mxCell>
-
-        <!-- DDoS Protection -->
-        <mxCell id="ddos" value="Yandex DDoS Protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E33A3A;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#CC0000;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="550" y="210" width="200" height="40" as="geometry"/>
+        <mxCell id="ddos" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E33A3A;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#CC0000;arcSize=10;" value="Yandex DDoS Protection" vertex="1">
+          <mxGeometry height="40" width="200" x="550" y="210" as="geometry" />
         </mxCell>
-
-        <!-- Arrow DNS → CDN -->
-        <mxCell id="arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="dns" target="cdn">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="arrow1" edge="1" parent="1" source="dns" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="cdn">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Arrow CDN → DDoS -->
-        <mxCell id="arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="cdn" target="ddos">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="arrow2" edge="1" parent="1" source="cdn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="ddos">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- ===== SECTION 2: LOAD BALANCING & API MANAGEMENT (y=280..480) ===== -->
-
-        <!-- Global ALB -->
-        <mxCell id="alb" value="Yandex ALB (L7)&#xa;Global Load Balancer&#xa;Health Checks → /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5282FF;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#3366CC;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="530" y="290" width="240" height="60" as="geometry"/>
+        <mxCell id="alb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5282FF;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#3366CC;arcSize=10;" value="Yandex ALB (L7)&#xa;Global Load Balancer&#xa;Health Checks → /healthz" vertex="1">
+          <mxGeometry height="60" width="240" x="530" y="290" as="geometry" />
         </mxCell>
-
-        <!-- Arrow DDoS → ALB -->
-        <mxCell id="arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="ddos" target="alb">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="arrow3" edge="1" parent="1" source="ddos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="alb">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- User API Gateway -->
-        <mxCell id="api-gw-user" value="API Gateway (User)&#xa;• Routing / Auth / SSL&#xa;• Health Check: /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33A852;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#228B22;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="350" y="390" width="220" height="70" as="geometry"/>
-        </mxCell>
-
-        <!-- B2B API Gateway -->
-        <mxCell id="api-gw-b2b" value="API Gateway (B2B Partners)&#xa;• Rate Limiting (20 RPS/partner)&#xa;• API Key Auth / Health Check" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#E67300;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="730" y="390" width="230" height="70" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow ALB → API Gateways -->
-        <mxCell id="arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="alb" target="api-gw-user">
+        <mxCell id="arrow4" edge="1" parent="1" source="alb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="api-gw-user">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="460" y="350"/>
+              <mxPoint x="460" y="350" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="alb" target="api-gw-b2b">
+        <mxCell id="arrow5" edge="1" parent="1" source="alb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="api-gw-b2b">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="845" y="350"/>
+              <mxPoint x="845" y="350" />
             </Array>
           </mxGeometry>
         </mxCell>
-
-        <!-- ===== REGION CONTAINER: ru-central1 (y=490..1350) ===== -->
-        <mxCell id="region-container" value="&lt;b&gt;Yandex Cloud — Регион ru-central1 (Москва)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#E3EBFF;fontColor=#333333;fontSize=14;fontStyle=1;strokeColor=#5282FF;arcSize=15;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="50" y="490" width="1200" height="880" as="geometry"/>
+        <mxCell id="region-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#E3EBFF;fontColor=#333333;fontSize=14;fontStyle=1;strokeColor=#5282FF;arcSize=15;verticalAlign=top;spacingTop=10;" value="&lt;b&gt;Yandex Cloud — Регион ru-central1 (Москва)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="880" width="1200" x="50" y="490" as="geometry" />
         </mxCell>
-
-        <!-- ===== AVAILABILITY ZONE A (y=540..1100) ===== -->
-        <mxCell id="az-a-container" value="&lt;b&gt;Зона доступности A (ru-central1-a)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=4 4;fillColor=#F0F5FF;fontColor=#333333;fontSize=12;fontStyle=1;strokeColor=#5282FF;arcSize=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
-          <mxGeometry x="80" y="530" width="360" height="780" as="geometry"/>
+        <mxCell id="az-a-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=4 4;fillColor=#F0F5FF;fontColor=#333333;fontSize=12;fontStyle=1;strokeColor=#5282FF;arcSize=10;verticalAlign=top;spacingTop=5;" value="&lt;b&gt;Зона доступности A (ru-central1-a)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="780" width="360" x="80" y="530" as="geometry" />
         </mxCell>
-
-        <!-- K8s Cluster A -->
-        <mxCell id="k8s-a" value="Kubernetes Cluster A&#xa;(Independent)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2875E2;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#1A5CBE;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="100" y="560" width="320" height="40" as="geometry"/>
+        <mxCell id="ingress-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BA0D9;fontColor=#ffffff;fontSize=11;strokeColor=#3A7CB8;arcSize=8;" value="Ingress Controller&#xa;Health: /healthz" vertex="1">
+          <mxGeometry height="45" width="140" x="110" y="615" as="geometry" />
         </mxCell>
-
-        <!-- Ingress A -->
-        <mxCell id="ingress-a" value="Ingress Controller&#xa;Health: /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BA0D9;fontColor=#ffffff;fontSize=11;strokeColor=#3A7CB8;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="110" y="615" width="140" height="45" as="geometry"/>
+        <mxCell id="core-app-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="core-app&#xa;(Auto-scaled: 2-10 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="110" y="675" as="geometry" />
         </mxCell>
-
-        <!-- Services in AZ A -->
-        <mxCell id="core-app-a" value="core-app&#xa;(Auto-scaled: 2-10 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="110" y="675" width="140" height="45" as="geometry"/>
+        <mxCell id="client-info-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="client-info&#xa;(Auto-scaled: 2-6 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="270" y="675" as="geometry" />
         </mxCell>
-
-        <mxCell id="client-info-a" value="client-info&#xa;(Auto-scaled: 2-6 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="270" y="675" width="140" height="45" as="geometry"/>
+        <mxCell id="ins-prod-agg-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="ins-product-aggregator&#xa;(Auto-scaled: 2-6 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="110" y="735" as="geometry" />
         </mxCell>
-
-        <mxCell id="ins-prod-agg-a" value="ins-product-aggregator&#xa;(Auto-scaled: 2-6 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="110" y="735" width="140" height="45" as="geometry"/>
+        <mxCell id="ins-comp-settl-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="ins-comp-settlement&#xa;(Scheduled tasks)" vertex="1">
+          <mxGeometry height="45" width="140" x="270" y="735" as="geometry" />
         </mxCell>
-
-        <mxCell id="ins-comp-settl-a" value="ins-comp-settlement&#xa;(Scheduled tasks)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="270" y="735" width="140" height="45" as="geometry"/>
+        <mxCell id="hc-a1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=9;strokeColor=#66BB6A;arcSize=6;" value="✓ Liveness&#xa;✓ Readiness&#xa;✓ /healthz" vertex="1">
+          <mxGeometry height="40" width="130" x="110" y="795" as="geometry" />
         </mxCell>
-
-        <!-- Health Check badges for AZ A -->
-        <mxCell id="hc-a1" value="✓ Liveness&#xa;✓ Readiness&#xa;✓ /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=9;strokeColor=#66BB6A;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="110" y="795" width="130" height="40" as="geometry"/>
+        <mxCell id="az-b-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=4 4;fillColor=#F0F5FF;fontColor=#333333;fontSize=12;fontStyle=1;strokeColor=#5282FF;arcSize=10;verticalAlign=top;spacingTop=5;" value="&lt;b&gt;Зона доступности B (ru-central1-b)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="780" width="360" x="470" y="530" as="geometry" />
         </mxCell>
-
-        <!-- ===== AVAILABILITY ZONE B (y=540..1100) ===== -->
-        <mxCell id="az-b-container" value="&lt;b&gt;Зона доступности B (ru-central1-b)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=4 4;fillColor=#F0F5FF;fontColor=#333333;fontSize=12;fontStyle=1;strokeColor=#5282FF;arcSize=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
-          <mxGeometry x="470" y="530" width="360" height="780" as="geometry"/>
+        <mxCell id="ingress-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BA0D9;fontColor=#ffffff;fontSize=11;strokeColor=#3A7CB8;arcSize=8;" value="Ingress Controller&#xa;Health: /healthz" vertex="1">
+          <mxGeometry height="45" width="140" x="500" y="615" as="geometry" />
         </mxCell>
-
-        <!-- K8s Cluster B -->
-        <mxCell id="k8s-b" value="Kubernetes Cluster B&#xa;(Independent)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2875E2;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#1A5CBE;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="490" y="560" width="320" height="40" as="geometry"/>
+        <mxCell id="core-app-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="core-app&#xa;(Auto-scaled: 2-10 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="500" y="675" as="geometry" />
         </mxCell>
-
-        <!-- Ingress B -->
-        <mxCell id="ingress-b" value="Ingress Controller&#xa;Health: /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BA0D9;fontColor=#ffffff;fontSize=11;strokeColor=#3A7CB8;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="500" y="615" width="140" height="45" as="geometry"/>
+        <mxCell id="client-info-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="client-info&#xa;(Auto-scaled: 2-6 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="660" y="675" as="geometry" />
         </mxCell>
-
-        <!-- Services in AZ B -->
-        <mxCell id="core-app-b" value="core-app&#xa;(Auto-scaled: 2-10 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="500" y="675" width="140" height="45" as="geometry"/>
+        <mxCell id="ins-prod-agg-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="ins-product-aggregator&#xa;(Auto-scaled: 2-6 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="500" y="735" as="geometry" />
         </mxCell>
-
-        <mxCell id="client-info-b" value="client-info&#xa;(Auto-scaled: 2-6 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="660" y="675" width="140" height="45" as="geometry"/>
+        <mxCell id="ins-comp-settl-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="ins-comp-settlement&#xa;(Scheduled tasks)" vertex="1">
+          <mxGeometry height="45" width="140" x="660" y="735" as="geometry" />
         </mxCell>
-
-        <mxCell id="ins-prod-agg-b" value="ins-product-aggregator&#xa;(Auto-scaled: 2-6 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="500" y="735" width="140" height="45" as="geometry"/>
+        <mxCell id="hc-b1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=9;strokeColor=#66BB6A;arcSize=6;" value="✓ Liveness&#xa;✓ Readiness&#xa;✓ /healthz" vertex="1">
+          <mxGeometry height="40" width="130" x="500" y="795" as="geometry" />
         </mxCell>
-
-        <mxCell id="ins-comp-settl-b" value="ins-comp-settlement&#xa;(Scheduled tasks)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="660" y="735" width="140" height="45" as="geometry"/>
+        <mxCell id="az-c-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=4 4;fillColor=#F0F5FF;fontColor=#333333;fontSize=12;fontStyle=1;strokeColor=#5282FF;arcSize=10;verticalAlign=top;spacingTop=5;" value="&lt;b&gt;Зона доступности C (ru-central1-c)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="780" width="360" x="860" y="530" as="geometry" />
         </mxCell>
-
-        <!-- Health Check badges for AZ B -->
-        <mxCell id="hc-b1" value="✓ Liveness&#xa;✓ Readiness&#xa;✓ /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=9;strokeColor=#66BB6A;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="500" y="795" width="130" height="40" as="geometry"/>
+        <mxCell id="ingress-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BA0D9;fontColor=#ffffff;fontSize=11;strokeColor=#3A7CB8;arcSize=8;" value="Ingress Controller&#xa;Health: /healthz" vertex="1">
+          <mxGeometry height="45" width="140" x="890" y="615" as="geometry" />
         </mxCell>
-
-        <!-- ===== AVAILABILITY ZONE C (y=540..1100) ===== -->
-        <mxCell id="az-c-container" value="&lt;b&gt;Зона доступности C (ru-central1-c)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=4 4;fillColor=#F0F5FF;fontColor=#333333;fontSize=12;fontStyle=1;strokeColor=#5282FF;arcSize=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
-          <mxGeometry x="860" y="530" width="360" height="780" as="geometry"/>
+        <mxCell id="core-app-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="core-app&#xa;(Auto-scaled: 2-10 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="890" y="675" as="geometry" />
         </mxCell>
-
-        <!-- K8s Cluster C -->
-        <mxCell id="k8s-c" value="Kubernetes Cluster C&#xa;(Independent)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2875E2;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#1A5CBE;arcSize=10;" vertex="1" parent="1">
-          <mxGeometry x="880" y="560" width="320" height="40" as="geometry"/>
+        <mxCell id="client-info-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="client-info&#xa;(Auto-scaled: 2-6 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="1050" y="675" as="geometry" />
         </mxCell>
-
-        <!-- Ingress C -->
-        <mxCell id="ingress-c" value="Ingress Controller&#xa;Health: /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5BA0D9;fontColor=#ffffff;fontSize=11;strokeColor=#3A7CB8;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="890" y="615" width="140" height="45" as="geometry"/>
+        <mxCell id="ins-prod-agg-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="ins-product-aggregator&#xa;(Auto-scaled: 2-6 pods)" vertex="1">
+          <mxGeometry height="45" width="140" x="890" y="735" as="geometry" />
         </mxCell>
-
-        <!-- Services in AZ C -->
-        <mxCell id="core-app-c" value="core-app&#xa;(Auto-scaled: 2-10 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="890" y="675" width="140" height="45" as="geometry"/>
+        <mxCell id="ins-comp-settl-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" value="ins-comp-settlement&#xa;(Scheduled tasks)" vertex="1">
+          <mxGeometry height="45" width="140" x="1050" y="735" as="geometry" />
         </mxCell>
-
-        <mxCell id="client-info-c" value="client-info&#xa;(Auto-scaled: 2-6 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="675" width="140" height="45" as="geometry"/>
+        <mxCell id="hc-c1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=9;strokeColor=#66BB6A;arcSize=6;" value="✓ Liveness&#xa;✓ Readiness&#xa;✓ /healthz" vertex="1">
+          <mxGeometry height="40" width="130" x="890" y="795" as="geometry" />
         </mxCell>
-
-        <mxCell id="ins-prod-agg-c" value="ins-product-aggregator&#xa;(Auto-scaled: 2-6 pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="890" y="735" width="140" height="45" as="geometry"/>
+        <mxCell id="conn-user-a" edge="1" parent="1" source="api-gw-user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="ingress-a">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="ins-comp-settl-c" value="ins-comp-settlement&#xa;(Scheduled tasks)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;fontColor=#ffffff;fontSize=11;strokeColor=#0E7DAD;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="735" width="140" height="45" as="geometry"/>
+        <mxCell id="conn-user-b" edge="1" parent="1" source="api-gw-user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="ingress-b">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Health Check badges for AZ C -->
-        <mxCell id="hc-c1" value="✓ Liveness&#xa;✓ Readiness&#xa;✓ /healthz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=9;strokeColor=#66BB6A;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="890" y="795" width="130" height="40" as="geometry"/>
+        <mxCell id="conn-user-c" edge="1" parent="1" source="api-gw-user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" target="ingress-c">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- ===== CONNECTIONS FROM API GATEWAYS TO AZs ===== -->
-        <!-- User API GW → Ingress A -->
-        <mxCell id="conn-user-a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="api-gw-user" target="ingress-a">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        <!-- User API GW → Ingress B -->
-        <mxCell id="conn-user-b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="api-gw-user" target="ingress-b">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        <!-- User API GW → Ingress C -->
-        <mxCell id="conn-user-c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="api-gw-user" target="ingress-c">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <!-- B2B API GW → Ingress A -->
-        <mxCell id="conn-b2b-a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8C00;strokeWidth=2;" edge="1" parent="1" source="api-gw-b2b" target="ingress-a">
+        <mxCell id="conn-b2b-a" edge="1" parent="1" source="api-gw-b2b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8C00;strokeWidth=2;" target="ingress-a">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="180" y="425"/>
+              <mxPoint x="180" y="425" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <!-- B2B API GW → Ingress B -->
-        <mxCell id="conn-b2b-b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8C00;strokeWidth=2;" edge="1" parent="1" source="api-gw-b2b" target="ingress-b">
+        <mxCell id="conn-b2b-b" edge="1" parent="1" source="api-gw-b2b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8C00;strokeWidth=2;" target="ingress-b">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="570" y="425"/>
+              <mxPoint x="570" y="425" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <!-- B2B API GW → Ingress C -->
-        <mxCell id="conn-b2b-c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8C00;strokeWidth=2;" edge="1" parent="1" source="api-gw-b2b" target="ingress-c">
+        <mxCell id="conn-b2b-c" edge="1" parent="1" source="api-gw-b2b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF8C00;strokeWidth=2;" target="ingress-c">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="960" y="425"/>
+              <mxPoint x="960" y="425" />
             </Array>
           </mxGeometry>
         </mxCell>
-
-        <!-- ===== DATABASE LAYER (y=1360..1620) ===== -->
-        <mxCell id="db-container" value="&lt;b&gt;База данных — PostgreSQL Patroni Cluster&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#FFF3E0;fontColor=#333333;fontSize=14;fontStyle=1;strokeColor=#FF9800;arcSize=15;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="50" y="1370" width="1200" height="260" as="geometry"/>
+        <mxCell id="db-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#FFF3E0;fontColor=#333333;fontSize=14;fontStyle=1;strokeColor=#FF9800;arcSize=15;verticalAlign=top;spacingTop=10;" value="&lt;b&gt;База данных — PostgreSQL Patroni Cluster&lt;/b&gt;" vertex="1">
+          <mxGeometry height="260" width="1200" x="50" y="1370" as="geometry" />
         </mxCell>
-
-        <!-- PgBouncer -->
-        <mxCell id="pgbouncer" value="PgBouncer&#xa;(Connection Pooling)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#E67F00;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="490" y="1395" width="200" height="40" as="geometry"/>
+        <mxCell id="pgbouncer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF9800;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#E67F00;arcSize=8;" value="PgBouncer&#xa;(Connection Pooling)" vertex="1">
+          <mxGeometry height="40" width="200" x="490" y="1410" as="geometry" />
         </mxCell>
-
-        <!-- DB Primary (AZ A) -->
-        <mxCell id="db-primary" value="PostgreSQL PRIMARY&#xa;AZ-A&#xa;Streaming Replication →" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#1565C0;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#0D47A1;size=10;" vertex="1" parent="1">
-          <mxGeometry x="110" y="1455" width="180" height="70" as="geometry"/>
+        <mxCell id="db-primary" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#1565C0;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#0D47A1;size=10;" value="PostgreSQL PRIMARY&#xa;AZ-A&#xa;Streaming Replication →" vertex="1">
+          <mxGeometry height="70" width="180" x="110" y="1455" as="geometry" />
         </mxCell>
-
-        <!-- DB Replica (AZ B) -->
-        <mxCell id="db-replica-b" value="PostgreSQL REPLICA&#xa;AZ-B&#xa;(Synchronous / Async)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#42A5F5;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#1E88E5;size=10;" vertex="1" parent="1">
-          <mxGeometry x="470" y="1455" width="180" height="70" as="geometry"/>
+        <mxCell id="db-replica-c" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#42A5F5;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#1E88E5;size=10;" value="PostgreSQL REPLICA&#xa;AZ-C&#xa;(Async replication)" vertex="1">
+          <mxGeometry height="70" width="180" x="830" y="1455" as="geometry" />
         </mxCell>
-
-        <!-- DB Replica (AZ C) -->
-        <mxCell id="db-replica-c" value="PostgreSQL REPLICA&#xa;AZ-C&#xa;(Async replication)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#42A5F5;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#1E88E5;size=10;" vertex="1" parent="1">
-          <mxGeometry x="830" y="1455" width="180" height="70" as="geometry"/>
+        <mxCell id="conn-db-pr-b" edge="1" parent="1" source="db-primary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF9800;strokeWidth=2;endArrow=blockThin;" target="db-replica-b">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Arrow Primary → Replica B -->
-        <mxCell id="conn-db-pr-b" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF9800;strokeWidth=2;endArrow=blockThin;" edge="1" parent="1" source="db-primary" target="db-replica-b">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="conn-db-pr-c" edge="1" parent="1" source="db-primary" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF9800;strokeWidth=2;endArrow=blockThin;" target="db-replica-c">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Arrow Primary → Replica C -->
-        <mxCell id="conn-db-pr-c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#FF9800;strokeWidth=2;endArrow=blockThin;" edge="1" parent="1" source="db-primary" target="db-replica-c">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="patroni-label" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;fontColor=#E65100;fontSize=10;strokeColor=#FFB74D;arcSize=6;" value="Patroni Framework:&#xa;• Auto-failover &lt; 30 sec&#xa;• Health checks every 5 sec&#xa;• RTO: ~30 sec (≪ 45 min)" vertex="1">
+          <mxGeometry height="70" width="180" x="1050" y="1455" as="geometry" />
         </mxCell>
-
-        <!-- Replication labels -->
-        <mxCell id="repl-label-b" value="Sync replication&#xa;(RPO=0 for critical data)" style="text;html=1;fontSize=9;fontColor=#FF9800;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="310" y="1480" width="140" height="30" as="geometry"/>
+        <mxCell id="storage-title" parent="1" style="text;html=1;fontSize=14;fontColor=#333333;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" value="&lt;b&gt;Хранение и резервное копирование&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="600" x="350" y="1650" as="geometry" />
         </mxCell>
-        <mxCell id="repl-label-c" value="Async replication&#xa;(RPO &lt;15 min)" style="text;html=1;fontSize=9;fontColor=#FF9800;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="670" y="1480" width="140" height="30" as="geometry"/>
+        <mxCell id="object-storage" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1FA2;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#6A1B9A;arcSize=8;" value="Yandex Object Storage&#xa;• WAL archiving (every 15 min → RPO)&#xa;• Daily full backup&#xa;• 30-day retention" vertex="1">
+          <mxGeometry height="50" width="300" x="100" y="1690" as="geometry" />
         </mxCell>
-
-        <!-- Patroni label -->
-        <mxCell id="patroni-label" value="Patroni Framework:&#xa;• Auto-failover &lt; 30 sec&#xa;• Health checks every 5 sec&#xa;• RTO: ~30 sec (≪ 45 min)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;fontColor=#E65100;fontSize=10;strokeColor=#FFB74D;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1050" y="1455" width="180" height="70" as="geometry"/>
+        <mxCell id="backup-policy" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;fontColor=#4A148C;fontSize=10;strokeColor=#CE93D8;arcSize=6;" value="Backup Schedule:&#xa;• WAL: every 15 min&#xa;• Full: daily 02:00 MSK&#xa;• Retention: 30 days&#xa;• RPO: 15 min ✓" vertex="1">
+          <mxGeometry height="60" width="210" x="450" y="1690" as="geometry" />
         </mxCell>
-
-        <!-- ===== STORAGE & BACKUP (y=1650..1750) ===== -->
-        <mxCell id="storage-title" value="&lt;b&gt;Хранение и резервное копирование&lt;/b&gt;" style="text;html=1;fontSize=14;fontColor=#333333;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="350" y="1650" width="600" height="30" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="object-storage" value="Yandex Object Storage&#xa;• WAL archiving (every 15 min → RPO)&#xa;• Daily full backup&#xa;• 30-day retention" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B1FA2;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#6A1B9A;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="100" y="1690" width="300" height="50" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="backup-policy" value="Backup Schedule:&#xa;• WAL: every 15 min&#xa;• Full: daily 02:00 MSK&#xa;• Retention: 30 days&#xa;• RPO: 15 min ✓" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;fontColor=#4A148C;fontSize=10;strokeColor=#CE93D8;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="450" y="1690" width="200" height="55" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow DB → Object Storage -->
-        <mxCell id="conn-db-storage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B1FA2;strokeWidth=2;endArrow=blockThin;dashed=1;" edge="1" parent="1" source="db-replica-c" target="object-storage">
+        <mxCell id="conn-db-storage" edge="1" parent="1" source="db-replica-c" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B1FA2;strokeWidth=2;endArrow=blockThin;dashed=1;" target="object-storage">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="920" y="1640"/>
+              <mxPoint x="920" y="1640" />
             </Array>
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="wal-label" value="WAL → S3" style="text;html=1;fontSize=9;fontColor=#7B1FA2;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="860" y="1640" width="60" height="20" as="geometry"/>
+        <mxCell id="wal-label" parent="1" style="text;html=1;fontSize=9;fontColor=#7B1FA2;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" value="WAL → S3" vertex="1">
+          <mxGeometry height="20" width="60" x="860" y="1640" as="geometry" />
         </mxCell>
-
-        <!-- ===== MONITORING & OBSERVABILITY (y=1660..1780) ===== -->
-        <mxCell id="monitoring-title" value="&lt;b&gt;Мониторинг и Observability&lt;/b&gt;" style="text;html=1;fontSize=14;fontColor=#333333;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="850" y="1650" width="300" height="30" as="geometry"/>
+        <mxCell id="monitoring-title" parent="1" style="text;html=1;fontSize=14;fontColor=#333333;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" value="&lt;b&gt;Мониторинг и Observability&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="300" x="850" y="1650" as="geometry" />
         </mxCell>
-
-        <mxCell id="monitoring" value="Yandex Monitoring&#xa;• Метрики инфраструктуры&#xa;• Метрики БД&#xa;• Дашборды" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00897B;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#00695C;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="800" y="1690" width="160" height="55" as="geometry"/>
+        <mxCell id="monitoring" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00897B;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#00695C;arcSize=8;" value="Yandex Monitoring&#xa;• Метрики инфраструктуры&#xa;• Метрики БД&#xa;• Дашборды" vertex="1">
+          <mxGeometry height="60" width="170" x="760" y="1690" as="geometry" />
         </mxCell>
-
-        <mxCell id="grafana" value="Grafana + Prometheus&#xa;• Метрики приложений&#xa;• Метрики K8s&#xa;• Alertmanager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00897B;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#00695C;arcSize=8;" vertex="1" parent="1">
-          <mxGeometry x="990" y="1690" width="180" height="55" as="geometry"/>
+        <mxCell id="grafana" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00897B;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#00695C;arcSize=8;" value="Grafana + Prometheus&#xa;• Метрики приложений&#xa;• Метрики K8s&#xa;• Alertmanager" vertex="1">
+          <mxGeometry height="60" width="190" x="990" y="1690" as="geometry" />
         </mxCell>
-
-        <!-- ===== LEGEND (bottom-right) ===== -->
-        <mxCell id="legend" value="&lt;b&gt;Условные обозначения:&lt;/b&gt;&#xa;───── Пользовательский трафик&#xa;─ ─ ─ B2B партнёрский трафик&#xa;─ ─ ─ Репликация / Backup" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;fontColor=#333333;fontSize=10;strokeColor=#BDBDBD;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="70" y="1760" width="250" height="60" as="geometry"/>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;fontColor=#333333;fontSize=10;strokeColor=#BDBDBD;arcSize=6;" value="&lt;b&gt;Условные обозначения:&lt;/b&gt;&#xa;───── Пользовательский трафик&#xa;─ ─ ─ B2B партнёрский трафик&#xa;─ ─ ─ Репликация / Backup" vertex="1">
+          <mxGeometry height="60" width="250" x="70" y="1760" as="geometry" />
         </mxCell>
-
-        <!-- ===== COMMENT BOXES FOR KEY DECISIONS ===== -->
-
-        <!-- Comment 1: K8s Strategy -->
-        <mxCell id="comment-k8s" value="&lt;b&gt;💡 Комментарий: Выбор независимых кластеров K8s&lt;/b&gt;&#xa;&#xa;Выбраны независимые кластеры Kubernetes в каждой зоне доступности (а не один растянутый кластер).&#xa;&#xa;Причины:&#xa;1. Изоляция отказов — сбой одного AZ не влияет на другие&#xa;2. Нет проблемы split-brain при сетевых разделениях&#xa;3. Меньшая задержка — etcd работает в пределах одного AZ&#xa;4. Независимые обновления и версионирование&#xa;5. Проще управление сетевыми политиками&#xa;&#xa;Недостаток: требуется больше накладных расходов на управление, но компенсируется GitOps (ArgoCD)." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;fontColor=#1565C0;fontSize=10;strokeColor=#90CAF9;arcSize=8;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
-          <mxGeometry x="70" y="1790" width="380" height="170" as="geometry"/>
+        <mxCell id="comment-k8s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;fontColor=#1565C0;fontSize=10;strokeColor=#90CAF9;arcSize=8;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;💡 Комментарий: Выбор независимых кластеров K8s&lt;/b&gt;&#xa;&#xa;Выбраны независимые кластеры Kubernetes в каждой зоне доступности (а не один растянутый кластер).&#xa;&#xa;Причины:&#xa;1. Изоляция отказов — сбой одного AZ не влияет на другие&#xa;2. Нет проблемы split-brain при сетевых разделениях&#xa;3. Меньшая задержка — etcd работает в пределах одного AZ&#xa;4. Независимые обновления и версионирование&#xa;5. Проще управление сетевыми политиками&#xa;&#xa;Недостаток: требуется больше накладных расходов на управление, но компенсируется GitOps (ArgoCD)." vertex="1">
+          <mxGeometry height="190" width="380" x="70" y="1830" as="geometry" />
         </mxCell>
-
-        <!-- Comment 2: Failover Strategy -->
-        <mxCell id="comment-failover" value="&lt;b&gt;💡 Комментарий: Failover-стратегия&lt;/b&gt;&#xa;&#xa;Режим: Active-Active (все 3 AZ активны).&#xa;&#xa;• При отказе одного AZ, DNS health check автоматически исключает его из маршрутизации (TTL=60s)&#xa;• ALB перераспределяет трафик между оставшимися AZ&#xa;• Patroni автоматически promotes replica в другом AZ (∼30 сек)&#xa;• RTO: ~1-2 мин (≪ 45 мин) ✓&#xa;• RPO: 0 для синхронной репликации, &lt;15 мин для асинхронной ✓" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;fontColor=#E65100;fontSize=10;strokeColor=#FFCC80;arcSize=8;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
-          <mxGeometry x="500" y="1790" width="380" height="170" as="geometry"/>
+        <mxCell id="comment-failover" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;fontColor=#E65100;fontSize=10;strokeColor=#FFCC80;arcSize=8;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;💡 Комментарий: Failover-стратегия&lt;/b&gt;&#xa;&#xa;Режим: Active-Active (все 3 AZ активны).&#xa;&#xa;• При отказе одного AZ, DNS health check автоматически исключает его из маршрутизации (TTL=60s)&#xa;• ALB перераспределяет трафик между оставшимися AZ&#xa;• Patroni автоматически promotes replica в другом AZ (∼30 сек)&#xa;• RTO: ~1-2 мин (≪ 45 мин) ✓&#xa;• RPO: 0 для синхронной репликации, &lt;15 мин для асинхронной ✓" vertex="1">
+          <mxGeometry height="190" width="380" x="500" y="1830" as="geometry" />
         </mxCell>
-
-        <!-- Comment 3: Scaling Strategy -->
-        <mxCell id="comment-scaling" value="&lt;b&gt;💡 Комментарий: Стратегия масштабирования&lt;/b&gt;&#xa;&#xa;Выбрано горизонтальное масштабирование (Horizontal Scaling):&#xa;&#xa;• Вертикальное масштабирование имеет жёсткие аппаратные пределы и не решает проблему геораспределения&#xa;• Горизонтальное масштабирование позволяет добавлять узлы и поды по мере роста нагрузки&#xa;• HPA (Horizontal Pod Autoscaler) по CPU/памяти и кастомным метрикам&#xa;• Cluster Autoscaler для автоматического добавления узлов K8s&#xa;• Шардирование БД: НЕ требуется для 50 ГБ (можно отложить до 500+ ГБ)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=10;strokeColor=#A5D6A7;arcSize=8;align=left;verticalAlign=top;spacing=6;" vertex="1" parent="1">
-          <mxGeometry x="930" y="1790" width="380" height="170" as="geometry"/>
+        <mxCell id="comment-scaling" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#2E7D32;fontSize=10;strokeColor=#A5D6A7;arcSize=8;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;💡 Комментарий: Стратегия масштабирования&lt;/b&gt;&#xa;&#xa;Выбрано горизонтальное масштабирование (Horizontal Scaling):&#xa;&#xa;• Вертикальное масштабирование имеет жёсткие аппаратные пределы и не решает проблему геораспределения&#xa;• Горизонтальное масштабирование позволяет добавлять узлы и поды по мере роста нагрузки&#xa;• HPA (Horizontal Pod Autoscaler) по CPU/памяти и кастомным метрикам&#xa;• Cluster Autoscaler для автоматического добавления узлов K8s&#xa;• Шардирование БД: НЕ требуется для 50 ГБ (можно отложить до 500+ ГБ)" vertex="1">
+          <mxGeometry height="190" width="380" x="930" y="1830" as="geometry" />
         </mxCell>
-
-        <!-- ===== ADDITIONAL LABELS ===== -->
-
-        <!-- Load balancing strategy label -->
-        <mxCell id="lb-strategy" value="Балансировка:&#xa;1. DNS latency-based routing&#xa;2. ALB L7 (HTTP/HTTPS)&#xa;3. Health check → /healthz&#xa;4. Ingress → Service → Pod" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;fontColor=#1565C0;fontSize=9;strokeColor=#90CAF9;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="100" y="300" width="180" height="60" as="geometry"/>
+        <mxCell id="lb-strategy" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;fontColor=#1565C0;fontSize=9;strokeColor=#90CAF9;arcSize=6;" value="Балансировка:&#xa;1. DNS latency-based routing&#xa;2. ALB L7 (HTTP/HTTPS)&#xa;3. Health check → /healthz&#xa;4. Ingress → Service → Pod" vertex="1">
+          <mxGeometry height="60" width="180" x="100" y="300" as="geometry" />
         </mxCell>
-
-        <!-- Rate limiting note -->
-        <mxCell id="ratelimit-note" value="Rate Limiting:&#xa;• 20 RPS per B2B partner&#xa;• Burst: 30 RPS&#xa;• Exceeded → 429 Too Many Requests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;fontColor=#BF360C;fontSize=9;strokeColor=#FFAB91;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="850" y="300" width="180" height="60" as="geometry"/>
+        <mxCell id="ratelimit-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;fontColor=#BF360C;fontSize=9;strokeColor=#FFAB91;arcSize=6;" value="Rate Limiting:&#xa;• 20 RPS per B2B partner&#xa;• Burst: 30 RPS&#xa;• Exceeded → 429 Too Many Requests" vertex="1">
+          <mxGeometry height="60" width="180" x="850" y="300" as="geometry" />
         </mxCell>
-
-        <!-- CDN note -->
-        <mxCell id="cdn-note" value="Yandex Cloud CDN:&#xa;• Кеширование статики на Edge-узлах&#xa;• Единое время загрузки для всех регионов РФ&#xa;• HTTP/2, Brotli сжатие" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#1B5E20;fontSize=9;strokeColor=#A5D6A7;arcSize=6;" vertex="1" parent="1">
-          <mxGeometry x="100" y="140" width="180" height="55" as="geometry"/>
+        <mxCell id="cdn-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;fontColor=#1B5E20;fontSize=9;strokeColor=#A5D6A7;arcSize=6;" value="Yandex Cloud CDN:&#xa;• Кеширование статики на Edge-узлах&#xa;• Единое время загрузки для всех регионов РФ&#xa;• HTTP/2, Brotli сжатие" vertex="1">
+          <mxGeometry height="55" width="180" x="100" y="140" as="geometry" />
         </mxCell>
-
+        <mxCell id="api-gw-user" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33A852;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#228B22;arcSize=10;" value="API Gateway (User)&#xa;• Routing / Auth / SSL&#xa;• Health Check: /healthz" vertex="1">
+          <mxGeometry height="70" width="220" x="350" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="api-gw-b2b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF8C00;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#E67300;arcSize=10;" value="API Gateway (B2B Partners)&#xa;• Rate Limiting (20 RPS/partner)&#xa;• API Key Auth / Health Check" vertex="1">
+          <mxGeometry height="70" width="230" x="730" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="k8s-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2875E2;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#1A5CBE;arcSize=10;" value="Kubernetes Cluster B&#xa;(Independent)" vertex="1">
+          <mxGeometry height="40" width="320" x="490" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="k8s-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2875E2;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#1A5CBE;arcSize=10;" value="Kubernetes Cluster C&#xa;(Independent)" vertex="1">
+          <mxGeometry height="40" width="320" x="880" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="k8s-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2875E2;fontColor=#ffffff;fontSize=12;fontStyle=1;strokeColor=#1A5CBE;arcSize=10;" value="Kubernetes Cluster A&#xa;(Independent)" vertex="1">
+          <mxGeometry height="40" width="320" x="100" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="repl-label-b" parent="1" style="text;html=1;fontSize=9;fontColor=#FF9800;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" value="Sync replication&#xa;(RPO=0 for critical data)" vertex="1">
+          <mxGeometry height="30" width="140" x="310" y="1495" as="geometry" />
+        </mxCell>
+        <mxCell id="repl-label-c" parent="1" style="text;html=1;fontSize=9;fontColor=#FF9800;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" value="Async replication&#xa;(RPO &lt;15 min)" vertex="1">
+          <mxGeometry height="30" width="140" x="670" y="1495" as="geometry" />
+        </mxCell>
+        <mxCell id="db-replica-b" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#42A5F5;fontColor=#ffffff;fontSize=11;fontStyle=1;strokeColor=#1E88E5;size=10;" value="PostgreSQL REPLICA&#xa;AZ-B&#xa;(Synchronous / Async)" vertex="1">
+          <mxGeometry height="70" width="180" x="470" y="1455" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
