@@ -1,0 +1,21 @@
+Name:                           scaletestapp-hpa-rps
+Namespace:                      default
+Labels:                         <none>
+Annotations:                    <none>
+CreationTimestamp:              Thu, 28 May 2026 22:08:16 +0400
+Reference:                      Deployment/scaletestapp
+Metrics:                        ( current / target )
+  "http_requests_rps" on pods:  7852m / 7500m
+Min replicas:                   1
+Max replicas:                   10
+Deployment pods:                6 current / 6 desired
+Conditions:
+  Type            Status  Reason              Message
+  ----            ------  ------              -------
+  AbleToScale     True    ReadyForNewScale    recommended size matches current size
+  ScalingActive   True    ValidMetricFound    the HPA was able to successfully calculate a replica count from pods metric http_requests_rps
+  ScalingLimited  False   DesiredWithinRange  the desired count is within the acceptable range
+Events:
+  Type    Reason             Age   From                       Message
+  ----    ------             ----  ----                       -------
+  Normal  SuccessfulRescale  23s   horizontal-pod-autoscaler  New size: 6; reason: pods metric http_requests_rps above target

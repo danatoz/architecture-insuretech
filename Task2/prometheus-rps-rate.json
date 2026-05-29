@@ -1,0 +1,83 @@
+{
+    "status": "success",
+    "data": {
+        "resultType": "vector",
+        "result": [
+            {
+                "metric": {
+                    "app": "scaletestapp",
+                    "instance": "10.244.0.38:8080",
+                    "job": "kubernetes-pods",
+                    "namespace": "default",
+                    "node": "minikube",
+                    "pod": "scaletestapp-b48f78697-7xhsp",
+                    "pod_template_hash": "b48f78697"
+                },
+                "value": [
+                    1779991858.694,
+                    "7.616666666666666"
+                ]
+            },
+            {
+                "metric": {
+                    "app": "scaletestapp",
+                    "instance": "10.244.0.68:8080",
+                    "job": "kubernetes-pods",
+                    "namespace": "default",
+                    "node": "minikube",
+                    "pod": "scaletestapp-b48f78697-4sv5j",
+                    "pod_template_hash": "b48f78697"
+                },
+                "value": [
+                    1779991858.694,
+                    "6.972424722222223"
+                ]
+            },
+            {
+                "metric": {
+                    "app": "scaletestapp",
+                    "instance": "10.244.0.71:8080",
+                    "job": "kubernetes-pods",
+                    "namespace": "default",
+                    "node": "minikube",
+                    "pod": "scaletestapp-b48f78697-fjhrf",
+                    "pod_template_hash": "b48f78697"
+                },
+                "value": [
+                    1779991858.694,
+                    "5.966666666666667"
+                ]
+            },
+            {
+                "metric": {
+                    "app": "scaletestapp",
+                    "instance": "10.244.0.70:8080",
+                    "job": "kubernetes-pods",
+                    "namespace": "default",
+                    "node": "minikube",
+                    "pod": "scaletestapp-b48f78697-6hq95",
+                    "pod_template_hash": "b48f78697"
+                },
+                "value": [
+                    1779991858.694,
+                    "8.753733981481481"
+                ]
+            },
+            {
+                "metric": {
+                    "app": "scaletestapp",
+                    "instance": "10.244.0.69:8080",
+                    "job": "kubernetes-pods",
+                    "namespace": "default",
+                    "node": "minikube",
+                    "pod": "scaletestapp-b48f78697-lflhs",
+                    "pod_template_hash": "b48f78697"
+                },
+                "value": [
+                    1779991858.694,
+                    "7.292016481481481"
+                ]
+            }
+        ]
+    }
+}

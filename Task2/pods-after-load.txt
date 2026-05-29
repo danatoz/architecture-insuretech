@@ -1,0 +1,15 @@
+NAME                            READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+scaletestapp-8496f4fbff-4dk52   1/1     Running   0          13m     10.244.0.7    minikube   <none>           <none>
+scaletestapp-8496f4fbff-hmwsm   1/1     Running   0          16s     10.244.0.14   minikube   <none>           <none>
+scaletestapp-8496f4fbff-jhnhf   1/1     Running   0          2m16s   10.244.0.11   minikube   <none>           <none>
+scaletestapp-8496f4fbff-k7hkd   1/1     Running   0          76s     10.244.0.13   minikube   <none>           <none>
+scaletestapp-8496f4fbff-w7tnv   1/1     Running   0          76s     10.244.0.12   minikube   <none>           <none>
+scaletestapp-8496f4fbff-z7shk   1/1     Running   0          2m16s   10.244.0.10   minikube   <none>           <none>
+NAME                      REFERENCE                 TARGETS           MINPODS   MAXPODS   REPLICAS   AGE
+scaletestapp-hpa-memory   Deployment/scaletestapp   memory: 94%/80%   1         10        6          17m
+NAME                            CPU(cores)   MEMORY(bytes)   
+scaletestapp-8496f4fbff-4dk52   11m          26Mi            
+scaletestapp-8496f4fbff-jhnhf   1m           6Mi             
+scaletestapp-8496f4fbff-k7hkd   1m           4Mi             
+scaletestapp-8496f4fbff-w7tnv   1m           4Mi             
+scaletestapp-8496f4fbff-z7shk   1m           4Mi             
