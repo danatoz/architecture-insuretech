@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scaletestapp
+  labels:
+    app: scaletestapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scaletestapp
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+      labels:
+        app: scaletestapp
+    spec:
+      containers:
+        - name: scaletestapp
+          image: scaletestapp:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              memory: "10Mi"
+            limits:
+              memory: "30Mi"

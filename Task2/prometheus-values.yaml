@@ -1,0 +1,7 @@
+server:
+  extraScrapeConfigs:
+    - job_name: 'scaletestapp'
+      static_configs:
+        - targets: ['scaletestapp-service.default.svc.cluster.local:8080']
+  service:
+    type: NodePort

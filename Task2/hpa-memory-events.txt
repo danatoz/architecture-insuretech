@@ -1,0 +1,25 @@
+Name:                                                     scaletestapp-hpa-memory
+Namespace:                                                default
+Labels:                                                   <none>
+Annotations:                                              <none>
+CreationTimestamp:                                        Thu, 28 May 2026 21:07:54 +0400
+Reference:                                                Deployment/scaletestapp
+Metrics:                                                  ( current / target )
+  resource memory on pods  (as a percentage of request):  94% (9940172800m) / 80%
+Min replicas:                                             1
+Max replicas:                                             10
+Deployment pods:                                          6 current / 6 desired
+Conditions:
+  Type            Status  Reason              Message
+  ----            ------  ------              -------
+  AbleToScale     True    ReadyForNewScale    recommended size matches current size
+  ScalingActive   True    ValidMetricFound    the HPA was able to successfully calculate a replica count from memory resource utilization (percentage of request)
+  ScalingLimited  False   DesiredWithinRange  the desired count is within the acceptable range
+Events:
+  Type     Reason                        Age                 From                       Message
+  ----     ------                        ----                ----                       -------
+  Warning  FailedComputeMetricsReplicas  14m (x12 over 17m)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get memory resource metric value: failed to get memory utilization: unable to get metrics for resource memory: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedGetResourceMetric       12m (x21 over 17m)  horizontal-pod-autoscaler  failed to get memory utilization: unable to get metrics for resource memory: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Normal   SuccessfulRescale             2m15s               horizontal-pod-autoscaler  New size: 3; reason: memory resource utilization (percentage of request) above target
+  Normal   SuccessfulRescale             75s                 horizontal-pod-autoscaler  New size: 5; reason: memory resource utilization (percentage of request) above target
+  Normal   SuccessfulRescale             15s                 horizontal-pod-autoscaler  New size: 6; reason: memory resource utilization (percentage of request) above target
